@@ -61,6 +61,9 @@ type Service struct {
 }
 
 // Función para crear un enlace de pago (Nequi/Wompi)
+// Datos de pruebas para cellphone:
+// 3991111111 for an approved transaction (APPROVED)
+// 3992222222 for a declined transaction (DECLINED)
 func (s *Service) PayByNequiWompi(nameUser string, description string, redirectUrl string, orderId string, customerEmail string, amountInCent int64, cellPhone string) (*wompiresponse.WompiPaymentResponse, error) {
 	wompiResponse, err := s.wompiClient.SendPaymentLink(
 		wompirequest.WompiSendPaymentRequest{
